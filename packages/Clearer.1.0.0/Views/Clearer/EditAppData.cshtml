@@ -1,0 +1,21 @@
+﻿@model ManageVar.Models.AppData
+           @{
+               var nr=@ViewData["Nr"];
+               string id=string.Format("tr_{0}",nr);
+           }
+<tr id='@id'>
+<td>
+@nr
+</td>
+<td>@Model.source</td>
+
+<td>
+@Html.DisplayFor(model => model.Key)
+</td>
+
+<td>
+@Html.DisplayFor(model => model.Value)
+</td>
+<td><a href="javascript:removeItem('@HttpUtility.JavaScriptStringEncode(Model.Key)','@((int)Model.source)','@id')">Remove</a></td>
+</tr>
+

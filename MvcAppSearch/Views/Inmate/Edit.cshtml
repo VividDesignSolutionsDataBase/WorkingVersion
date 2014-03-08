@@ -1,0 +1,69 @@
+﻿@model MvcAppSearch.Models.Inmate
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Your Account</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Inmate</legend>
+
+        @Html.HiddenFor(model => model.InmateID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FloorNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FloorNo)
+            @Html.ValidationMessageFor(model => model.FloorNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReportDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReportDate)
+            @Html.ValidationMessageFor(model => model.ReportDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

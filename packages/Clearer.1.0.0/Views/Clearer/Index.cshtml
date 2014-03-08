@@ -1,0 +1,67 @@
+﻿@model ManageVar.Models.ListAppData
+@{
+    ViewBag.Title = "Index";
+    int i = 0;
+}
+<h2>
+    Data</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Nr.
+            </th>
+            <th>
+                Source
+            </th>
+            <th>
+                Key
+            </th>
+            <th>
+                Value
+            </th>
+             <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            i++;
+            var vd = new ViewDataDictionary();
+            vd.Add("nr", i);
+            Html.RenderPartial("EditAppData", item, vd);    
+
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function removeItem(key, source,id) {
+    var urldelete='@Url.Content("~/Clearer/DeleteItem")';
+    var dataSend = { TheKey: key, Source: source };
+    $.ajax({
+        type: "POST",
+        url: urldelete,
+        data: JSON.stringify(dataSend),
+        datatype: "JSON",
+        contentType: "application/json; charset=utf-8",
+        success: function (returndata) {
+            if (returndata.ok) {
+                window.alert("ok");
+                $("#" + id).hide('slow');
+            }
+            else {
+                //this is an error from the server
+                window.alert(' error : ' + returndata.message);
+            }
+
+        }
+    }
+        );
+
+    }
+
+</script>

@@ -1,0 +1,1 @@
+nuget pack Skywalker.Web.Mvc.ViewComponents.dll.nuspec

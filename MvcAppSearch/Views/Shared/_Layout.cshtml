@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Department of Corrections</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body style="width: 960px;">
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("Department of Corrections", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            @if(Request.IsAuthenticated)
+                                {
+                                    if(User.IsInRole("Chief"))
+                                    {
+                                     <ul Class="SubMenuItem">
+                                         <li>@Html.ActionLink("Administrator", "Index", "Home")</li>
+                                         <li>@Html.ActionLink("Create Report", "DR", "Home")</li>
+                                         <li>@Html.ActionLink("Search", "Index", "Inmate")</li>
+                                     </ul>
+                                }
+                                      else
+                                      { 
+                                         <ul Class="SubMenuItem">
+                                             <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                                         </ul>
+                                    }
+                                }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - VividDesign Solutions</p>
+                </div>
+            </div>
+        </footer>
+        @Content.Script("jquery-2.0.3.js", Url)
+        @Content.Script("jquery-2.0.3.min.js", Url)
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+     
+         <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+
+    </body>
+</html>
+
+        
+<script type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+</script>

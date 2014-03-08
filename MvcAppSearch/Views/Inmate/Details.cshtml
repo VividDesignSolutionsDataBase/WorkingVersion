@@ -1,0 +1,50 @@
+﻿@model MvcAppSearch.Models.Inmate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Inmate</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Location)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FloorNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FloorNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReportDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReportDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.InmateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
