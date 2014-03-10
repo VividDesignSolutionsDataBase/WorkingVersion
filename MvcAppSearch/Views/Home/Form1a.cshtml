@@ -38,22 +38,46 @@
 </div>
 
 <div class="grid_21 container_21" style="background: lightblue;">
-    <div style="text-align:right; top:7px;" class="grid_1 alpha">@Html.Label("RSA: ")</div>
-    <div class="grid_2"><input id="race" type="text" /></div>
-    <div id="facility" class="grid_2 prefix_1"><label for="facility">FACILITY:</label></div>
-    <div class="grid_5" style="font-size: 15px;top:2px;">@Html.CheckBox("PDF") PDF @Html.CheckBox("MCC") MCC @Html.CheckBox("CTC") CTC</div>
-    <div style="top:7px;" class="grid_4">@Html.Label("HOUSING LOCATION:")</div>
-    <div style="top:7px;" class="grid_2">
-        @Html.DropDownList("Location", new List<SelectListItem>
-{
-    new SelectListItem { Text = " ",Value = "0",Selected = true},
-    new SelectListItem { Text = "Location 1",Value = "1"},
-    new SelectListItem { Text = "Location 2",Value = "2"},
-    new SelectListItem { Text = "Location 3",Value = "3"},
-    new SelectListItem { Text = "Location 4",Value = "4"},
-    new SelectListItem { Text = "Location 5",Value = "5"},
-    new SelectListItem { Text = "Other",Value = "6"},
-}, "Locations")
+    <div style="text-align:right; top:7px;" class="grid_1 alpha">@Html.Label("Race: ")</div>
+    <div style="top:7px;" class="grid_2">@Html.DropDownList("Race", new List<SelectListItem>
+        {
+            new SelectListItem { Text = "",Value = "0",Selected = true},
+            new SelectListItem { Text = "W",Value = "1"},
+            new SelectListItem { Text = "B",Value = "2"},
+            new SelectListItem { Text = "H",Value = "3"},
+            new SelectListItem { Text = "O",Value = "4"},
+        }, "Race")
+    </div>
+    <div style="top:7px;" class="grid_1">@Html.Label("Sex: ")</div>
+    <div style="top:7px;" class="grid_2">@Html.DropDownList("Sex", new List<SelectListItem>
+        {
+            new SelectListItem { Text = " ",Value = "0",Selected = true},
+            new SelectListItem { Text = "M",Value = "1"},
+            new SelectListItem { Text = "F",Value = "2"},
+        }, "Sex")
+    </div>
+    <div style="top:7px;" class="grid_1">@Html.Label("Age: ")</div>
+    <div class="grid_1"><input id="drInmAge" type="text" /></div>       
+    <div id="facility" class="grid_2"><label for="facility">FACILITY:</label></div>
+    <div style="top:7px;" class="grid_1">@Html.DropDownList("Facility", new List<SelectListItem>
+        {
+            new SelectListItem { Text = " ",Value = "0",Selected = true},
+            new SelectListItem { Text = "PDF",Value = "1"},
+            new SelectListItem { Text = "MCC",Value = "2"},
+            new SelectListItem { Text = "CTC",Value = "3"},
+        }, "Facility")
+    </div>
+    <div style="top:7px;" class="grid_4 prefix_1">@Html.Label("HOUSING LOCATION:")</div>
+    <div style="top:7px;" class="grid_2">@Html.DropDownList("Location", new List<SelectListItem>
+        {
+            new SelectListItem { Text = " ",Value = "0",Selected = true},
+            new SelectListItem { Text = "Location 1",Value = "1"},
+            new SelectListItem { Text = "Location 2",Value = "2"},
+            new SelectListItem { Text = "Location 3",Value = "3"},
+            new SelectListItem { Text = "Location 4",Value = "4"},
+            new SelectListItem { Text = "Location 5",Value = "5"},
+            new SelectListItem { Text = "Other",Value = "6"},
+        }, "Locations")
     </div>
     <div style="display: none;" class="grid_2 prefix_1 omega">@Html.TextBox("other")</div>
 </div>
@@ -120,7 +144,8 @@
         <div style="top:-15px;" class="grid_3">
             <p style="text-indent:10px; font-size:15px;">Date of Incident:</p>
         </div>
-        <div class="grid_1">
+        <div class="grid_3"><input type="datetime-local" name="icident" id="dateofincident" /></div>
+        <!--<div class="grid_1">
             @Html.DropDownList("Day", new List<SelectListItem>
                 {
                     new SelectListItem { Text = "1",Value = "1",Selected = true},
@@ -191,7 +216,7 @@
                     new SelectListItem { Text = "2022",Value = "13"},
                     new SelectListItem { Text = "2023",Value = "14"},
                 }, "Year")
-        </div>
+        </div>-->
     </div>
     <div class="grid_21">
         <div class="prefix_8 grid_3 alpha">
